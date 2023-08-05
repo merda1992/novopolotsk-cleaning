@@ -1,0 +1,16 @@
+{
+  "overwrite": true,
+  "generates": {
+    "./src/gql/types.ts": {
+      "schema": "http://localhost:3001/graphql",
+      "hooks": {
+        "afterOneFileWrite": [
+          "eslint --fix"
+        ]
+      },
+      "plugins": [
+        "typescript"
+      ]
+    }
+  }
+}
