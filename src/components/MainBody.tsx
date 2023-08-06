@@ -27,10 +27,10 @@ const MainTypography = styled(Typography)(({ theme }) => ({
 
 const ListTypography = styled('li')(({ theme }) => ({
   fontFamily: ['Marker Felt, fantasy'].join(','),
-  fontSize: '29px',
+  fontSize: '30px',
   fontWeight: 400,
   color: theme.palette.common.white,
-  lineHeight: '30px',
+  lineHeight: '32px',
   position: 'relative',
 }));
 
@@ -41,6 +41,7 @@ const ListsBox = styled(Box)(({ theme }) => ({
   padding: '10px',
   borderRadius: '15px',
   backgroundColor: theme.palette.secondary.main,
+  paddingBottom: '1px',
 }));
 
 const MainBody = () => {
@@ -53,7 +54,7 @@ const MainBody = () => {
       </Box>
 
       <ListsBox>
-        <Typography textAlign="center" fontSize="27px" color="white">
+        <Typography textAlign="center" fontSize="28px" lineHeight="28px" color="white">
           {t('ourAdvantages')}
         </Typography>
         <ul style={{ paddingLeft: '25px' }}>
@@ -61,6 +62,7 @@ const MainBody = () => {
           <ListTypography>{t('advantages.fastAndHighQualityCleaning')}</ListTypography>
           <ListTypography>{t('advantages.serviceGuarantee')}</ListTypography>
           <ListTypography>{t('advantages.acceptablePrices')}</ListTypography>
+          <ListTypography>{t('advantages.modernEquipment')}</ListTypography>
         </ul>
       </ListsBox>
     </Box>

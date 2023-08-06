@@ -1,7 +1,7 @@
 const translation = {
   footer: {
-    copyright: 'copyright © 2023 Coveystar, Inc.',
-    contactUs: 'contact us',
+    mail: '(merda@tut.by)',
+    contactUs: 'Связаться с нами',
   },
   companyName: "Клининговые услуги в Новополоцке-Полоцке",
   servicesAndPrices: "Услуги и цены",
@@ -11,7 +11,8 @@ const translation = {
     qualifiedEmployees: 'Квалифицированные сотрудники',
     fastAndHighQualityCleaning: 'Отвественный подход к работе',
     serviceGuarantee: 'Гарантия на услуги',
-    acceptablePrices: 'Приемлемые цены'
+    acceptablePrices: 'Приемлемые цены',
+    modernEquipment: 'Современное оборудование'
   }
 };
 
