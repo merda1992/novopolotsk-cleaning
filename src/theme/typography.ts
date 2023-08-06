@@ -1,7 +1,7 @@
 import palette from './palette';
 
 export default {
-  fontFamily: ['Roboto'].join(','),
+  fontFamily: ['Marker Felt, fantasy'].join(','),
   h1: {
     color: palette.text.primary,
     fontWeight: 700,

@@ -1,32 +1,69 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/system';
-import Logo from './Logo';
 
-const BodyBox = styled(Box)(({ theme }) => ({
-  backgroundColor: theme.palette.background.default,
-  height: '100%',
-  display: 'flex',
-}));
+import { useTranslation } from 'react-i18next';
 
-const ContentBox = styled(Box)(() => ({
-  width: '100%',
-  display: 'flex',
-  alignItems: 'center',
+const MainTypography = styled(Typography)(({ theme }) => ({
+  fontSize: '50px',
+  textAlign: 'center',
+  fontWeight: 400,
+  color: theme.palette.common.white,
+  lineHeight: '50px',
+  position: 'relative',
 
-  ' img': {
-    width: '100%',
-    height: 'max-content',
+  '&::after': {
+    display: 'block',
+    width: '180px',
+    height: '3px',
+    background: theme.palette.common.white,
+    position: 'absolute',
+    bottom: '-20px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    content: '""',
   },
 }));
 
+const ListTypography = styled('li')(({ theme }) => ({
+  fontFamily: ['Marker Felt, fantasy'].join(','),
+  fontSize: '29px',
+  fontWeight: 400,
+  color: theme.palette.common.white,
+  lineHeight: '30px',
+  position: 'relative',
+}));
+
+const ListsBox = styled(Box)(({ theme }) => ({
+  width: 'max-content',
+  margin: 'auto',
+  marginTop: '50px',
+  padding: '10px',
+  borderRadius: '15px',
+  backgroundColor: theme.palette.secondary.main,
+}));
+
 const MainBody = () => {
+  const { t } = useTranslation();
+
   return (
-    <BodyBox>
-      <ContentBox />
-      <Logo openSiteButton />
-      <ContentBox />
-    </BodyBox>
+    <Box marginTop="130px">
+      <Box>
+        <MainTypography>{t('companyName')}</MainTypography>
+      </Box>
+
+      <ListsBox>
+        <Typography textAlign="center" fontSize="27px" color="white">
+          {t('ourAdvantages')}
+        </Typography>
+        <ul style={{ paddingLeft: '25px' }}>
+          <ListTypography>{t('advantages.qualifiedEmployees')}</ListTypography>
+          <ListTypography>{t('advantages.fastAndHighQualityCleaning')}</ListTypography>
+          <ListTypography>{t('advantages.serviceGuarantee')}</ListTypography>
+          <ListTypography>{t('advantages.acceptablePrices')}</ListTypography>
+        </ul>
+      </ListsBox>
+    </Box>
   );
 };
 

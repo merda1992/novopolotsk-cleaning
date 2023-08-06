@@ -7,10 +7,11 @@ import { useTranslation } from 'react-i18next';
 const FooterBox = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  backgroundColor: theme.palette.background.paper,
-  maxHeight: '42px',
+  backgroundColor: theme.palette.common.white,
+  maxHeight: '64px',
   height: '100%',
   justifyContent: 'space-between',
+  borderTop: 'solid #d4d2d2',
 }));
 
 const MainFooter = () => {
