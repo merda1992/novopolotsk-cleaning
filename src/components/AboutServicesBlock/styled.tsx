@@ -6,8 +6,8 @@ interface ContentBoxProps {
 
 export const StyledSpatialBlock = styled(Box)(({ theme }) => ({
   display: 'block',
-  borderTop: '85px solid transparent',
-  // marginTop: '85px',
+  borderTop: 'solid transparent',
+  paddingTop: '85px',
   MozBackgroundClip: 'padding',
   WebkitBackgroundClip: 'padding-box',
   backgroundClip: 'padding-box',

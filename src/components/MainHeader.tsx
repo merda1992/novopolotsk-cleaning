@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/system';
@@ -36,6 +36,7 @@ const TypographyBox = styled(Box)(({ theme }) => ({
 
 const CompanyNameBox = styled(Box)(({ theme }) => ({
   maxWidth: '220px',
+  cursor: 'pointer',
 
   '& p': {
     fontWeight: 600,
@@ -45,15 +46,52 @@ const CompanyNameBox = styled(Box)(({ theme }) => ({
 
 const MainHeader = () => {
   const { t } = useTranslation();
+  const [activeLink, setActiveLink] = useState<boolean>(false);
+
+  const handleSectionChange = () => {
+    const el = document.getElementById('about');
+
+    if (el) {
+      const yOffset = el.offsetTop;
+
+      window.scrollTo({ top: yOffset - 64, behavior: 'smooth' });
+
+      window.onscroll = () => {
+        if (yOffset === window.scrollY) {
+          window.onscroll = null;
+        }
+      };
+    }
+  };
+
+  const startWindow = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  console.log(activeLink);
+
+  const checkActiveLink = useCallback(() => {
+    const el = document.getElementById('about');
+
+    if (el?.offsetTop && window.scrollY >= el?.offsetTop - 64 && !activeLink) {
+      setActiveLink(true);
+    } else if (activeLink && el?.offsetTop && window.scrollY < el?.offsetTop - 64) {
+      setActiveLink(false);
+    }
+  }, [activeLink]);
+
+  useEffect(() => {
+    document.addEventListener('scroll', checkActiveLink);
+
+    return () => document.removeEventListener('scroll', checkActiveLink);
+  }, [checkActiveLink]);
 
   return (
     <HeaderBox>
       <Box width="100%" justifyContent="space-between" display="flex" alignItems="center">
-        <CompanyNameBox>
+        <CompanyNameBox onClick={startWindow}>
           <Typography>{t('companyName')}</Typography>
         </CompanyNameBox>
-        <TypographyBox>
-          <Typography>{t('servicesAndPrices')}</Typography>
+        <TypographyBox onClick={handleSectionChange}>
+          <Typography sx={{ textDecoration: activeLink ? 'underline' : 'none' }}>{t('servicesAndPrices')}</Typography>
         </TypographyBox>
 
         <SocialMedia />

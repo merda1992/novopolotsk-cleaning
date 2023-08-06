@@ -74,7 +74,6 @@ const MainBody = () => {
       <Box padding="50px" display="flex" justifyContent="center">
         <MainTypography>{t('companyName')}</MainTypography>
       </Box>
-
       <ListsBox>
         <Typography textAlign="center" fontSize="28px" lineHeight="28px" color="white">
           {t('ourAdvantages')}
