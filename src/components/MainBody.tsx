@@ -2,7 +2,18 @@ import React, { useMemo } from 'react';
 import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/system';
 
+import Logo from '../components/img/cleaningBgc.svg';
+
 import { useTranslation } from 'react-i18next';
+
+const BodyBox = styled(Box)(({ theme }) => ({
+  background: `url("${Logo}") no-repeat bottom center`,
+  opacity: '0.8',
+  height: '100vh',
+  marginTop: '64px',
+  paddingBottom: '80px',
+  maxHeight: '500px',
+}));
 
 const MainTypography = styled(Typography)(({ theme }) => ({
   fontSize: '50px',
@@ -37,11 +48,11 @@ const ListTypography = styled('li')(({ theme }) => ({
 const ListsBox = styled(Box)(({ theme }) => ({
   width: 'max-content',
   margin: 'auto',
-  marginTop: '50px',
   padding: '10px',
   borderRadius: '15px',
   backgroundColor: theme.palette.secondary.main,
   paddingBottom: '1px',
+  marginTop: '35px',
 }));
 
 const MainBody = () => {
@@ -59,8 +70,8 @@ const MainBody = () => {
   );
 
   return (
-    <Box marginTop="130px">
-      <Box display="flex" justifyContent="center" sx={{ backdropFilter: 'blur(1px)' }}>
+    <BodyBox>
+      <Box padding="50px" display="flex" justifyContent="center">
         <MainTypography>{t('companyName')}</MainTypography>
       </Box>
 
@@ -74,7 +85,7 @@ const MainBody = () => {
           ))}
         </ul>
       </ListsBox>
-    </Box>
+    </BodyBox>
   );
 };
 

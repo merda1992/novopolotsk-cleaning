@@ -17,10 +17,11 @@
     width: 10px;
     height: 10px;
     opacity: 1;
-    background: white;
+    border-color: black;
+    border: solid grey;
 
     &:hover {
-      cursor: 'pointer';
+      cursor: pointer;
     }
 }
 
@@ -28,4 +29,5 @@
     background: grey;
     width: 10px;
     height: 10px;
+    border: solid grey;
 }

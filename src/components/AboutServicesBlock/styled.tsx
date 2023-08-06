@@ -4,21 +4,21 @@ interface ContentBoxProps {
   isActive: boolean;
 }
 
-export const StyledSpatialBlock = styled(Box)(() => ({
+export const StyledSpatialBlock = styled(Box)(({ theme }) => ({
   display: 'block',
   borderTop: '85px solid transparent',
-  marginTop: '-85px',
+  // marginTop: '85px',
   MozBackgroundClip: 'padding',
   WebkitBackgroundClip: 'padding-box',
   backgroundClip: 'padding-box',
-  background: 'white',
+  background: theme.palette.secondary.dark,
+  zIndex: 0,
 }));
 
 export const StyledAboutOtomateBlock = styled(Box)(({ theme }) => ({
   maxWidth: '1248px',
   width: '100%',
   margin: '0 auto 180px',
-  padding: '0 24px',
 
   [theme.breakpoints.down('mobile')]: {
     padding: '0 16px',
@@ -52,8 +52,8 @@ export const StyledSubTitle = styled(Typography)(({ theme }) => ({
   },
 }));
 
-export const StyledContent = styled(Typography)(({ theme }) => ({
-  color: theme.palette.common.black,
+export const StyledContent = styled(Typography)<ContentBoxProps>(({ theme, isActive }) => ({
+  color: isActive ? theme.palette.common.white : theme.palette.primary.main,
   fontWeight: 400,
 
   [theme.breakpoints.down('tabletM')]: {
@@ -65,11 +65,15 @@ export const StyledContent = styled(Typography)(({ theme }) => ({
 
 export const StyledContentBox = styled(Box)<ContentBoxProps>(({ theme, isActive }) => ({
   borderRadius: '12px',
-  background: isActive ? theme.palette.primary.light : 'none',
+  background: isActive ? theme.palette.secondary.main : 'none',
   padding: '20px 30px',
 
   '&:hover': {
     cursor: 'pointer',
+  },
+
+  '& h6': {
+    color: isActive && 'white',
   },
 
   [theme.breakpoints.down('desktop')]: {

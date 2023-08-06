@@ -12,10 +12,13 @@ import { DeviceSizes } from './types';
 import { SLIDE_DELAY_SHORT_TEXT, SLIDE_TRANSITION_SPEED, SPACE_BETWEEN_SLIDES } from './constants';
 import { useWindowWidth } from '../../hooks/useWindowWidth';
 
-import BulkActions from './bulk-actions.png';
-import Completeness from './completeness.png';
-import Integrations from './integrations.png';
-import MediaLibrary from './media-library.png';
+import One from './1.jpg';
+import Two from './2.jpg';
+import Three from './3.jpg';
+import Four from './4.jpg';
+import Five from './5.jpg';
+import Six from './6.jpg';
+
 import {
   StyledSubTitle,
   StyledContent,
@@ -33,31 +36,45 @@ import {
 const carouselSlidesContent = [
   {
     id: 0,
-    subTitle: 'landingPage.aboutOtomate.subTitleIntegrations',
-    content: 'landingPage.aboutOtomate.contentIntegrations',
-    imgUrl: Integrations,
-    imgAlt: 'integrations',
+    subTitle: 'services.one',
+    content: 'prices.one',
+    imgUrl: One,
+    imgAlt: 'Удаление пыли со всех горизонтальных поверхностей',
   },
   {
     id: 1,
-    subTitle: 'landingPage.aboutOtomate.subTitleMedia',
-    content: 'landingPage.aboutOtomate.contentMedia',
-    imgUrl: MediaLibrary,
-    imgAlt: 'media-library',
+    subTitle: 'services.two',
+    content: 'prices.two',
+    imgUrl: Two,
+    imgAlt: 'Очистка сухим способом мягкой мебели, ковров и ковровых покрытий',
   },
   {
     id: 2,
-    subTitle: 'landingPage.aboutOtomate.subTitleBulk',
-    content: 'landingPage.aboutOtomate.contentBulk',
-    imgUrl: BulkActions,
-    imgAlt: 'bulk-actions',
+    subTitle: 'services.three',
+    content: 'prices.three',
+    imgUrl: Three,
+    imgAlt: 'Генеральная уборка коттеджей и домов',
   },
   {
     id: 3,
-    subTitle: 'landingPage.aboutOtomate.subTitleCompleteness',
-    content: 'landingPage.aboutOtomate.contentCompleteness',
-    imgUrl: Completeness,
-    imgAlt: 'completeness',
+    subTitle: 'services.four',
+    content: 'prices.four',
+    imgUrl: Four,
+    imgAlt: 'Чистка кухонной плиты, удаление следов жира',
+  },
+  {
+    id: 4,
+    subTitle: 'services.five',
+    content: 'prices.five',
+    imgUrl: Five,
+    imgAlt: 'Чистка и дезинфекция раковины, ванны, душевой кабины, джакузи и туалета',
+  },
+  {
+    id: 5,
+    subTitle: 'services.six',
+    content: 'prices.six',
+    imgUrl: Six,
+    imgAlt: 'Мойка окон',
   },
 ];
 
@@ -68,7 +85,7 @@ const AboutServicesBlock = () => {
   const windowWidth = useWindowWidth();
 
   const [swiper, setSwiper] = useState<SwiperCore>();
-  const [activeNavItem, setActiveNavItem] = useState(swiper?.realIndex);
+  const [activeNavItem, setActiveNavItem] = useState(swiper?.realIndex || 0);
 
   SwiperCore.use([Pagination, Autoplay]);
 
@@ -85,14 +102,16 @@ const AboutServicesBlock = () => {
   return (
     <StyledSpatialBlock id="about">
       <StyledAboutOtomateBlock>
-        <StyledTitle variant="h2">{t('landingPage.aboutOtomate.title')}</StyledTitle>
+        <StyledTitle variant="h2">{t('servicesAndPrices')}</StyledTitle>
         {windowWidth >= DeviceSizes.tablet ? (
           <StyledContainerContentBlock>
             <StyledBoxWithText>
               {carouselSlidesContent.map(({ subTitle, content, id }) => (
                 <StyledContentBox key={id} onClick={() => handleSlideTo(id)} isActive={id === activeNavItem}>
-                  <StyledSubTitle variant="h3">{t(subTitle)}</StyledSubTitle>
-                  <StyledContent variant="subtitle1">{t(content)}</StyledContent>
+                  <StyledSubTitle variant="subtitle1">{t(subTitle)}</StyledSubTitle>
+                  <StyledContent isActive={id === activeNavItem} variant="h3">
+                    {t(content)}
+                  </StyledContent>
                 </StyledContentBox>
               ))}
             </StyledBoxWithText>
@@ -143,7 +162,9 @@ const AboutServicesBlock = () => {
             {carouselSlidesContent.map(({ subTitle, content, imgUrl, imgAlt, id }) => (
               <SwiperSlide key={id}>
                 <StyledSubTitle paddingBottom="14px">{t(subTitle)}</StyledSubTitle>
-                <StyledContent paddingBottom="42px">{t(content)}</StyledContent>
+                <StyledContent isActive={id === activeNavItem} paddingBottom="42px">
+                  {t(content)}
+                </StyledContent>
                 <StyledPictureMobileWrapper>
                   <img src={imgUrl} alt={imgAlt} />
                 </StyledPictureMobileWrapper>

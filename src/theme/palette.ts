@@ -13,7 +13,7 @@ export default {
   },
   secondary: {
     main: '#5f9ea0',
-    dark: '#FEA351',
+    dark: '#dcdcdc',
     light: '#F38D32',
     contrastText: '#F2994A',
   },

@@ -17,13 +17,12 @@ const FooterBox = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   backgroundColor: theme.palette.common.white,
-  maxHeight: '80px',
-  height: '100%',
+  height: '110px',
   justifyContent: 'space-between',
   borderTop: 'solid #d4d2d2',
 }));
 
-const Mail = styled(Typography)(({ theme }) => ({
+const MailOrUnp = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.main,
   fontSize: '14px',
   lineHeight: '18px',
@@ -35,14 +34,17 @@ const MainFooter = () => {
   return (
     <FooterBox>
       <Box pl="20px">
-        <SocialMedia flexDirection="column" borderLine="horizaontal" borderPadding="5px" />
+        <SocialMedia flexDirection="column" borderLine="horizaontal" borderPadding="10px" />
       </Box>
 
       <Box display="flex" flexDirection="column" alignItems="center" pr="20px">
         <ContactUsLink href="mailto:merda@tut.by" color="primary.main">
           {t('footer.contactUs')}
         </ContactUsLink>
-        <Mail>{t('footer.mail')}</Mail>
+        <MailOrUnp>{t('footer.mail')}</MailOrUnp>
+        <MailOrUnp mt="10px" mb="5px">
+          {t('unp')}
+        </MailOrUnp>
       </Box>
     </FooterBox>
   );

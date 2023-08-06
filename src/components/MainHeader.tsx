@@ -17,6 +17,7 @@ const HeaderBox = styled(Box)(({ theme }) => ({
   borderBottom: 'solid #d4d2d2',
   position: 'fixed',
   width: '-webkit-fill-available',
+  zIndex: 1,
 }));
 
 const TypographyBox = styled(Box)(({ theme }) => ({
