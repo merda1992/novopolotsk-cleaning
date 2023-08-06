@@ -17,7 +17,7 @@ const FooterBox = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   backgroundColor: theme.palette.common.white,
-  maxHeight: '74px',
+  maxHeight: '80px',
   height: '100%',
   justifyContent: 'space-between',
   borderTop: 'solid #d4d2d2',
@@ -35,8 +35,9 @@ const MainFooter = () => {
   return (
     <FooterBox>
       <Box pl="20px">
-        <SocialMedia flexDirection="column" borderLine="horizaontal" borderPadding="3px" />
+        <SocialMedia flexDirection="column" borderLine="horizaontal" borderPadding="5px" />
       </Box>
+
       <Box display="flex" flexDirection="column" alignItems="center" pr="20px">
         <ContactUsLink href="mailto:merda@tut.by" color="primary.main">
           {t('footer.contactUs')}

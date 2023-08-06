@@ -49,7 +49,7 @@ const MainBody = () => {
 
   return (
     <Box marginTop="130px">
-      <Box>
+      <Box display="flex" justifyContent="center" sx={{ backdropFilter: 'blur(1px)' }}>
         <MainTypography>{t('companyName')}</MainTypography>
       </Box>
 
