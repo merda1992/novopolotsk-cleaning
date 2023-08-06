@@ -26,7 +26,7 @@ export const StyledAboutOtomateBlock = styled(Box)(({ theme }) => ({
 }));
 
 export const StyledTitle = styled(Typography)(({ theme }) => ({
-  paddingBottom: '64px',
+  paddingBottom: '80px',
   textAlign: 'center',
 
   [theme.breakpoints.down('mobile')]: {

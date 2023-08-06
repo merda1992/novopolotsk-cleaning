@@ -11,8 +11,8 @@ export default {
   h2: {
     color: palette.text.primary,
     fontWeight: 700,
-    fontSize: '24px',
-    lineHeight: '28px',
+    fontSize: '35px',
+    lineHeight: '35px',
   },
   h3: {
     color: palette.text.primary,
