@@ -18,7 +18,7 @@ export const StyledSpatialBlock = styled(Box)(({ theme }) => ({
 export const StyledAboutOtomateBlock = styled(Box)(({ theme }) => ({
   maxWidth: '1248px',
   width: '100%',
-  margin: '0 auto 180px',
+  margin: '0 auto 130px',
 
   [theme.breakpoints.down('mobile')]: {
     padding: '0 16px',

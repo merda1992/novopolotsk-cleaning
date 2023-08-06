@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 import { styled } from '@mui/system';
 
 import { useTranslation } from 'react-i18next';
@@ -30,6 +30,7 @@ const TypographyBox = styled(Box)(({ theme }) => ({
 
     '&:hover': {
       textDecoration: 'underline',
+      color: theme.palette.text.primary,
     },
   },
 }));
@@ -46,6 +47,8 @@ const CompanyNameBox = styled(Box)(({ theme }) => ({
 
 const MainHeader = () => {
   const { t } = useTranslation();
+  const theme = useTheme();
+
   const [activeLink, setActiveLink] = useState<boolean>(false);
 
   const handleSectionChange = () => {
@@ -91,7 +94,14 @@ const MainHeader = () => {
           <Typography>{t('companyName')}</Typography>
         </CompanyNameBox>
         <TypographyBox onClick={handleSectionChange}>
-          <Typography sx={{ textDecoration: activeLink ? 'underline' : 'none' }}>{t('servicesAndPrices')}</Typography>
+          <Typography
+            sx={{
+              textDecoration: activeLink ? 'underline' : 'none',
+              color: activeLink ? `${theme.palette.text.primary} !important` : 'none',
+            }}
+          >
+            {t('servicesAndPrices')}
+          </Typography>
         </TypographyBox>
 
         <SocialMedia />
