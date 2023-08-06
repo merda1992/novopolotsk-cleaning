@@ -3,6 +3,7 @@ import React from 'react';
 import MainHeader from './components/MainHeader';
 import MainFooter from './components/MainFooter';
 import MainBody from './components/MainBody';
+import AboutServicesBlock from './components/AboutOtamateBlock/AboutServicesBlock';
 
 import Logo from '../src/components/img/cleaningBgc.svg';
 
@@ -16,7 +17,8 @@ const BodyBox = styled(Box)(({ theme }) => ({
   height: '100vh',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  overflow: 'hidden',
+  overflowY: 'scroll',
+  overflowX: 'hidden',
   position: 'relative',
   backgroundColor: theme.palette.background.paper,
 }));
@@ -26,6 +28,7 @@ function App() {
     <BodyBox>
       <MainHeader />
       <MainBody />
+      <AboutServicesBlock />
       <MainFooter />
     </BodyBox>
   );
