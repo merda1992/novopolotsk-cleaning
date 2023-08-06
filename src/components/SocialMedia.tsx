@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Box, Typography, BoxProps } from '@mui/material';
-import { styled } from '@mui/system';
+import { Box, Typography, BoxProps, styled, SvgIconTypeMap } from '@mui/material';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
 
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TelegramIcon from '@mui/icons-material/Telegram';
@@ -12,6 +12,11 @@ import Iconography from './Iconography/Iconography';
 interface SocialMediaProps extends BoxProps {
   borderLine?: 'vertical' | 'horizaontal';
   borderPadding?: string;
+}
+
+interface SocialMediaLinks {
+  Icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>;
+  url: string;
 }
 
 const IconBox = styled(Box)(({ theme }) => ({
@@ -32,7 +37,10 @@ const TelNumber = styled(Typography)(({ theme }) => ({
   fontSize: '15px',
 }));
 
-const IconsSoc = [InstagramIcon, TelegramIcon];
+const IconsSoc: SocialMediaLinks[] = [
+  { Icon: InstagramIcon, url: 'https://www.instagram.com/cleaning.novopolotsk/' },
+  { Icon: TelegramIcon, url: 'tg://resolve?domain=@maksimvolkau' },
+];
 
 const SocialMedia = ({ borderLine = 'vertical', borderPadding, ...props }: SocialMediaProps) => {
   const handleClickByLink = (url: string) => window.open(url);
@@ -49,11 +57,11 @@ const SocialMedia = ({ borderLine = 'vertical', borderPadding, ...props }: Socia
         borderTop={borderLine === 'horizaontal' ? 'solid #80694d' : undefined}
         display="flex"
       >
-        <IconBox>
+        <IconBox onClick={() => handleClickByLink('viber://chat?number=%2B375298161177')}>
           <Iconography iconName="viber" />
         </IconBox>
-        {IconsSoc.map((Icon, idx) => (
-          <IconBox key={idx} onClick={() => handleClickByLink('https://vk.com')}>
+        {IconsSoc.map(({ Icon, url }, idx) => (
+          <IconBox key={idx} onClick={() => handleClickByLink(url)}>
             <Icon fontSize="large" />
           </IconBox>
         ))}

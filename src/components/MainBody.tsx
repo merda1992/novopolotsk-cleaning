@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/system';
 
@@ -47,6 +47,17 @@ const ListsBox = styled(Box)(({ theme }) => ({
 const MainBody = () => {
   const { t } = useTranslation();
 
+  const arrayAdvantages: string[] = useMemo(
+    () => [
+      t('advantages.qualifiedEmployees'),
+      t('advantages.fastAndHighQualityCleaning'),
+      t('advantages.serviceGuarantee'),
+      t('advantages.acceptablePrices'),
+      t('advantages.modernEquipment'),
+    ],
+    [t],
+  );
+
   return (
     <Box marginTop="130px">
       <Box display="flex" justifyContent="center" sx={{ backdropFilter: 'blur(1px)' }}>
@@ -58,11 +69,9 @@ const MainBody = () => {
           {t('ourAdvantages')}
         </Typography>
         <ul style={{ paddingLeft: '25px' }}>
-          <ListTypography>{t('advantages.qualifiedEmployees')}</ListTypography>
-          <ListTypography>{t('advantages.fastAndHighQualityCleaning')}</ListTypography>
-          <ListTypography>{t('advantages.serviceGuarantee')}</ListTypography>
-          <ListTypography>{t('advantages.acceptablePrices')}</ListTypography>
-          <ListTypography>{t('advantages.modernEquipment')}</ListTypography>
+          {arrayAdvantages.map((advantage, idx) => (
+            <ListTypography key={idx}>{advantage}</ListTypography>
+          ))}
         </ul>
       </ListsBox>
     </Box>
