@@ -82,7 +82,7 @@ const COUNT_OF_SLIDES = 4;
 
 const AboutServicesBlock = () => {
   const { t } = useTranslation();
-  const windowWidth = useWindowWidth();
+  const { windowWidth } = useWindowWidth();
 
   const [swiper, setSwiper] = useState<SwiperCore>();
   const [activeNavItem, setActiveNavItem] = useState(

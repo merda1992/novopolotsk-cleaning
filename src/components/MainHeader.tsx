@@ -64,7 +64,7 @@ const CompanyNameBox = styled(Box)(({ theme }) => ({
 
 const MainHeader = () => {
   const { t } = useTranslation();
-  const widthWindow = useWindowWidth();
+  const { windowWidth } = useWindowWidth();
   const theme = useTheme();
 
   const [activeLink, setActiveLink] = useState<boolean>(false);
@@ -119,7 +119,7 @@ const MainHeader = () => {
             {t('servicesAndPrices')}
           </Typography>
         </TypographyBox>
-        {widthWindow > DeviceSizes.mobileVerticalOrientitaion && <SocialMedia />}
+        {windowWidth > DeviceSizes.mobileVerticalOrientitaion && <SocialMedia />}
       </Box>
     </HeaderBox>
   );

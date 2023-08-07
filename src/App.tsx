@@ -12,7 +12,7 @@ const BodyBox = styled(Box)(({ theme }) => ({
   height: '100%',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  overflowY: 'scroll',
+  overflowY: 'auto',
   overflowX: 'hidden',
   position: 'relative',
   backgroundColor: theme.palette.background.paper,
