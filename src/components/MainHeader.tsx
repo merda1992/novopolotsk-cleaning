@@ -4,8 +4,10 @@ import { Box, Typography, useTheme } from '@mui/material';
 import { styled } from '@mui/system';
 
 import { useTranslation } from 'react-i18next';
+import { useWindowWidth } from '../hooks/useWindowWidth';
 
 import SocialMedia from './SocialMedia';
+import { DeviceSizes } from './AboutServicesBlock/types';
 
 const HeaderBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.common.white,
@@ -23,10 +25,20 @@ const HeaderBox = styled(Box)(({ theme }) => ({
 const TypographyBox = styled(Box)(({ theme }) => ({
   cursor: 'pointer',
   maxWidth: '220px',
+  margin: '0 20px',
+
+  [theme.breakpoints.down('tabletS')]: {
+    margin: 0,
+  },
 
   '& p': {
     fontWeight: 600,
     color: theme.palette.primary.main,
+
+    [theme.breakpoints.down('mobile')]: {
+      fontSize: '14px',
+      lineHeight: '14px',
+    },
 
     '&:hover': {
       textDecoration: 'underline',
@@ -42,11 +54,17 @@ const CompanyNameBox = styled(Box)(({ theme }) => ({
   '& p': {
     fontWeight: 600,
     color: theme.palette.primary.main,
+
+    [theme.breakpoints.down('mobile')]: {
+      fontSize: '14px',
+      lineHeight: '14px',
+    },
   },
 }));
 
 const MainHeader = () => {
   const { t } = useTranslation();
+  const widthWindow = useWindowWidth();
   const theme = useTheme();
 
   const [activeLink, setActiveLink] = useState<boolean>(false);
@@ -68,8 +86,6 @@ const MainHeader = () => {
   };
 
   const startWindow = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-
-  console.log(activeLink);
 
   const checkActiveLink = useCallback(() => {
     const el = document.getElementById('about');
@@ -103,8 +119,7 @@ const MainHeader = () => {
             {t('servicesAndPrices')}
           </Typography>
         </TypographyBox>
-
-        <SocialMedia />
+        {widthWindow > DeviceSizes.mobileVerticalOrientitaion && <SocialMedia />}
       </Box>
     </HeaderBox>
   );

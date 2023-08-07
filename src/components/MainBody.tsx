@@ -23,9 +23,14 @@ const MainTypography = styled(Typography)(({ theme }) => ({
   lineHeight: '50px',
   position: 'relative',
 
+  [theme.breakpoints.down('tabletS')]: {
+    fontSize: '30px',
+    lineHeight: '40px',
+  },
+
   '&::after': {
     display: 'block',
-    width: '180px',
+    width: '300px',
     height: '3px',
     background: theme.palette.common.white,
     position: 'absolute',
@@ -43,6 +48,11 @@ const ListTypography = styled('li')(({ theme }) => ({
   color: theme.palette.common.white,
   lineHeight: '32px',
   position: 'relative',
+
+  [theme.breakpoints.down('tabletS')]: {
+    fontSize: '23px',
+    lineHeight: '23px',
+  },
 }));
 
 const ListsBox = styled(Box)(({ theme }) => ({

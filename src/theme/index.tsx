@@ -17,6 +17,7 @@ declare module '@mui/material/styles' {
     tabletM: true;
     laptop: true;
     desktop: true;
+    desktopX: true;
   }
 }
 
@@ -31,6 +32,7 @@ const baseTheme = {
       tabletM: 769,
       laptop: 1050,
       desktop: 1200,
+      desktopX: 1300,
     },
   },
 } as ThemeOptions;

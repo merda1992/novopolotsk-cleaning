@@ -16,9 +16,8 @@ export const StyledSpatialBlock = styled(Box)(({ theme }) => ({
 }));
 
 export const StyledAboutOtomateBlock = styled(Box)(({ theme }) => ({
-  maxWidth: '1248px',
-  width: '100%',
   margin: '0 auto 130px',
+  padding: '0 16px',
 
   [theme.breakpoints.down('mobile')]: {
     padding: '0 16px',
@@ -40,7 +39,7 @@ export const StyledSubTitle = styled(Typography)(({ theme }) => ({
   paddingBottom: '12px',
   color: theme.palette.common.black,
 
-  [theme.breakpoints.down('tabletM')]: {
+  [theme.breakpoints.down('desktopX')]: {
     fontSize: '24px',
     lineHeight: '32px',
     textAlign: 'center',
@@ -56,7 +55,7 @@ export const StyledContent = styled(Typography)<ContentBoxProps>(({ theme, isAct
   color: isActive ? theme.palette.common.white : theme.palette.primary.main,
   fontWeight: 400,
 
-  [theme.breakpoints.down('tabletM')]: {
+  [theme.breakpoints.down('desktopX')]: {
     fontSize: '16px',
     lineHeight: '24px',
     textAlign: 'center',
@@ -76,6 +75,10 @@ export const StyledContentBox = styled(Box)<ContentBoxProps>(({ theme, isActive 
     color: isActive && 'white',
   },
 
+  // [theme.breakpoints.down('desktopX')]: {
+  //   minHeight: '64px',
+  // },
+
   [theme.breakpoints.down('desktop')]: {
     maxWidth: '408px',
   },
@@ -84,6 +87,10 @@ export const StyledContentBox = styled(Box)<ContentBoxProps>(({ theme, isActive 
     maxWidth: '350px',
     padding: '20px 20px',
   },
+
+  // [theme.breakpoints.down('mobile')]: {
+  //   minHeight: '102px',
+  // },
 }));
 
 export const StyledPicture = styled(Box)(({ theme }) => ({
@@ -118,10 +125,10 @@ export const StyledSliderContainer = styled(Box)(({ theme }) => ({
 
 export const StyledContainerContentBlock = styled(Box)(({ theme }) => ({
   display: 'flex',
+  justifyContent: 'center',
 
   [theme.breakpoints.down('desktop')]: {
     flexWrap: 'wrap',
-    justifyContent: 'center',
   },
 }));
 
@@ -144,6 +151,7 @@ export const StyledPictureMobileWrapper = styled(Box)(({ theme }) => ({
   margin: '0 auto',
   display: 'flex',
   justifyContent: 'center',
+  maxWidth: '650px',
 
   img: {
     width: '100%',

@@ -7,6 +7,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TelegramIcon from '@mui/icons-material/Telegram';
 
 import { useTranslation } from 'react-i18next';
+
 import Iconography from './Iconography/Iconography';
 
 interface SocialMediaProps extends BoxProps {
@@ -43,8 +44,9 @@ const IconsSoc: SocialMediaLinks[] = [
 ];
 
 const SocialMedia = ({ borderLine = 'vertical', borderPadding, ...props }: SocialMediaProps) => {
-  const handleClickByLink = (url: string) => window.open(url);
   const { t } = useTranslation();
+
+  const handleClickByLink = (url: string) => window.open(url);
 
   return (
     <Box {...props} display="flex">
@@ -57,14 +59,16 @@ const SocialMedia = ({ borderLine = 'vertical', borderPadding, ...props }: Socia
         borderTop={borderLine === 'horizaontal' ? 'solid #80694d' : undefined}
         display="flex"
       >
-        <IconBox onClick={() => handleClickByLink('viber://chat?number=%2B375298161177')}>
-          <Iconography iconName="viber" />
-        </IconBox>
-        {IconsSoc.map(({ Icon, url }, idx) => (
-          <IconBox key={idx} onClick={() => handleClickByLink(url)}>
-            <Icon fontSize="large" />
+        <>
+          <IconBox onClick={() => handleClickByLink('viber://chat?number=%2B375298161177')}>
+            <Iconography iconName="viber" />
           </IconBox>
-        ))}
+          {IconsSoc.map(({ Icon, url }, idx) => (
+            <IconBox key={idx} onClick={() => handleClickByLink(url)}>
+              <Icon fontSize="large" />
+            </IconBox>
+          ))}
+        </>
       </Box>
     </Box>
   );
