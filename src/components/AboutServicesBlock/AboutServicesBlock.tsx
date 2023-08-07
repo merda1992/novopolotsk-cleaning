@@ -31,6 +31,7 @@ import {
   StyledBoxWithText,
   StyledPictureMobileWrapper,
   StyledSpatialBlock,
+  TextContainer,
 } from './styled';
 
 const carouselSlidesContent = [
@@ -166,10 +167,13 @@ const AboutServicesBlock = () => {
           >
             {carouselSlidesContent.map(({ subTitle, content, imgUrl, imgAlt, id }) => (
               <SwiperSlide key={id}>
-                <StyledSubTitle paddingBottom="14px">{t(subTitle)}</StyledSubTitle>
-                <StyledContent isActive={id === activeNavItem} paddingBottom="42px">
-                  {t(content)}
-                </StyledContent>
+                <TextContainer>
+                  <StyledSubTitle paddingBottom="14px">{t(subTitle)}</StyledSubTitle>
+                  <StyledContent isActive={id === activeNavItem} paddingBottom="42px">
+                    {t(content)}
+                  </StyledContent>
+                </TextContainer>
+
                 <StyledPictureMobileWrapper>
                   <img src={imgUrl} alt={imgAlt} />
                 </StyledPictureMobileWrapper>

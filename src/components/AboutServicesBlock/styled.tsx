@@ -31,7 +31,7 @@ export const StyledTitle = styled(Typography)(({ theme }) => ({
   [theme.breakpoints.down('mobile')]: {
     fontSize: '28px',
     lineHeight: '36px',
-    paddingBottom: '40px',
+    paddingBottom: '50px',
   },
 }));
 
@@ -75,10 +75,6 @@ export const StyledContentBox = styled(Box)<ContentBoxProps>(({ theme, isActive 
     color: isActive && 'white',
   },
 
-  // [theme.breakpoints.down('desktopX')]: {
-  //   minHeight: '64px',
-  // },
-
   [theme.breakpoints.down('desktop')]: {
     maxWidth: '408px',
   },
@@ -87,10 +83,16 @@ export const StyledContentBox = styled(Box)<ContentBoxProps>(({ theme, isActive 
     maxWidth: '350px',
     padding: '20px 20px',
   },
+}));
 
-  // [theme.breakpoints.down('mobile')]: {
-  //   minHeight: '102px',
-  // },
+export const TextContainer = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.down('desktopX')]: {
+    minHeight: '142px',
+  },
+
+  [theme.breakpoints.down('mobile')]: {
+    minHeight: '168px',
+  },
 }));
 
 export const StyledPicture = styled(Box)(({ theme }) => ({
