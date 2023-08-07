@@ -38,7 +38,7 @@ const MainFooter = () => {
       </Box>
 
       <Box display="flex" flexDirection="column" alignItems="center" pr="20px">
-        <ContactUsLink href="mailto:merda@tut.by" color="primary.main">
+        <ContactUsLink href="mailto:example@gmail.by" color="primary.main">
           {t('footer.contactUs')}
         </ContactUsLink>
         <MailOrUnp>{t('footer.mail')}</MailOrUnp>
