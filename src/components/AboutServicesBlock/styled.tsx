@@ -13,6 +13,7 @@ export const StyledSpatialBlock = styled(Box)(({ theme }) => ({
   backgroundClip: 'padding-box',
   background: theme.palette.secondary.dark,
   zIndex: 0,
+  marginTop: 'auto',
 }));
 
 export const StyledAboutOtomateBlock = styled(Box)(({ theme }) => ({

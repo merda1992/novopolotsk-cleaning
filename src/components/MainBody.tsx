@@ -7,11 +7,11 @@ import Logo from '../components/img/cleaningBgc.svg';
 import { useTranslation } from 'react-i18next';
 
 const BodyBox = styled(Box)(({ theme }) => ({
-  background: `url("${Logo}") no-repeat bottom center`,
+  background: `url("${Logo}") no-repeat center`,
   opacity: '0.8',
   marginTop: '64px',
   paddingBottom: '80px',
-  maxHeight: '500px',
+  minHeight: '500px',
 }));
 
 const MainTypography = styled(Typography)(({ theme }) => ({
