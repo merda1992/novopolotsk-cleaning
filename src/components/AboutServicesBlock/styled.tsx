@@ -7,7 +7,7 @@ interface StateProps {
 export const StyledSpatialBlock = styled(Box)(({ theme }) => ({
   display: 'block',
   borderTop: 'solid transparent',
-  paddingTop: '85px',
+  paddingTop: '65px',
   MozBackgroundClip: 'padding',
   WebkitBackgroundClip: 'padding-box',
   backgroundClip: 'padding-box',
@@ -29,7 +29,7 @@ export const StyledTitle = styled(Typography)(({ theme }) => ({
   textAlign: 'center',
 
   [theme.breakpoints.down('mobile')]: {
-    fontSize: '28px',
+    fontSize: '30px',
     lineHeight: '36px',
     paddingBottom: '50px',
   },
