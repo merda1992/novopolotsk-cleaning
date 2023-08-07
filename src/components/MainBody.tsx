@@ -9,7 +9,6 @@ import { useTranslation } from 'react-i18next';
 const BodyBox = styled(Box)(({ theme }) => ({
   background: `url("${Logo}") no-repeat bottom center`,
   opacity: '0.8',
-  height: '100vh',
   marginTop: '64px',
   paddingBottom: '80px',
   maxHeight: '500px',
@@ -56,13 +55,18 @@ const ListTypography = styled('li')(({ theme }) => ({
 }));
 
 const ListsBox = styled(Box)(({ theme }) => ({
-  width: 'max-content',
+  width: 'auto',
+  display: 'table',
   margin: 'auto',
   padding: '10px',
   borderRadius: '15px',
   backgroundColor: theme.palette.secondary.main,
   paddingBottom: '1px',
   marginTop: '35px',
+
+  [theme.breakpoints.down('mobileMedium')]: {
+    margin: '0 5px',
+  },
 }));
 
 const MainBody = () => {

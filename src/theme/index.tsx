@@ -13,6 +13,7 @@ declare module '@mui/material/styles' {
     lg: false;
     xl: false;
     mobile: true; // adds the `mobile` breakpoint
+    mobileMedium: true;
     tabletS: true;
     tabletM: true;
     laptop: true;
@@ -27,6 +28,7 @@ const baseTheme = {
   components: overrides,
   breakpoints: {
     values: {
+      mobileMedium: 375,
       mobile: 426,
       tabletS: 600,
       tabletM: 769,
