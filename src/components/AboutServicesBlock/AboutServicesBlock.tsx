@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import './styles.scss';
@@ -84,7 +84,6 @@ const COUNT_OF_SLIDES = 4;
 const AboutServicesBlock = () => {
   const { t } = useTranslation();
   const windowWidth = useWindowWidth();
-  const ref = useRef(null);
 
   const [swiper, setSwiper] = useState<SwiperCore>();
   const [activeNavItem, setActiveNavItem] = useState(
@@ -101,12 +100,10 @@ const AboutServicesBlock = () => {
     }
   };
 
-  console.log(ref.current);
-
   const handleChangeSlide = (swiper: SwiperCore) => setActiveNavItem(swiper.realIndex);
 
   return (
-    <StyledSpatialBlock ref={ref} id="about">
+    <StyledSpatialBlock id="about">
       <StyledAboutOtomateBlock>
         <StyledTitle variant="h2">{t('servicesAndPrices')}</StyledTitle>
         {windowWidth >= DeviceSizes.laptopS ? (
