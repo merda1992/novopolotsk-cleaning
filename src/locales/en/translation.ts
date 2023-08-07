@@ -1,11 +1,11 @@
 const translation = {
   footer: {
-    mail: '(merda@tut.by)',
+    mail: '(example@gmail.by)',
     contactUs: 'Связаться с нами',
   },
   companyName: "Клининговые услуги в Новополоцке-Полоцке",
   servicesAndPrices: "Услуги и цены",
-  number: "+375(29)-816-11-77",
+  number: "+375(11)-111-11-11",
   ourAdvantages: 'Наши преимущества:',
   advantages: {
     qualifiedEmployees: 'Квалифицированные сотрудники',
@@ -30,7 +30,7 @@ const translation = {
     five: 'от 100р до 150р',
     six: 'от 100р до 150р',
   },
-  unp: 'УНП 4358392656345389'
+  unp: 'УНП 111111(пример)'
 };
 
 export default translation;
