@@ -100,7 +100,7 @@ const AboutServicesBlock = () => {
   };
 
   useEffect(() => {
-    if (windowWidth > DeviceSizes.laptopS) {
+    if (windowWidth > DeviceSizes.tabletM) {
       setActiveNavItem(swiper?.realIndex);
     } else {
       setActiveNavItem(undefined);
@@ -113,7 +113,7 @@ const AboutServicesBlock = () => {
     <StyledSpatialBlock id="about">
       <StyledAboutOtomateBlock>
         <StyledTitle variant="h2">{t('servicesAndPrices')}</StyledTitle>
-        {windowWidth >= DeviceSizes.laptopS ? (
+        {windowWidth >= DeviceSizes.tabletM ? (
           <StyledContainerContentBlock>
             <StyledBoxWithText>
               {carouselSlidesContent.map(({ subTitle, content, id }) => (

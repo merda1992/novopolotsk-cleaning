@@ -67,6 +67,9 @@ export const StyledContentBox = styled(Box)<StateProps>(({ theme, isactive }) =>
   borderRadius: '12px',
   background: isactive ? theme.palette.secondary.main : 'none',
   padding: '20px 30px',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
 
   '&:hover': {
     cursor: 'pointer',
@@ -81,7 +84,7 @@ export const StyledContentBox = styled(Box)<StateProps>(({ theme, isactive }) =>
   },
 
   [theme.breakpoints.down('laptop')]: {
-    maxWidth: '350px',
+    maxWidth: '310px',
     padding: '20px 20px',
   },
 }));
@@ -117,7 +120,7 @@ export const StyledSliderContainer = styled(Box)(({ theme }) => ({
   background: theme.palette.primary.main,
   borderRadius: '12px',
   width: '100%',
-  maxWidth: '690px',
+  maxWidth: '680px',
   display: 'flex',
   alignItems: 'center',
 
