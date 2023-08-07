@@ -1,6 +1,6 @@
 import { Box, experimentalStyled as styled, Typography } from '@mui/material';
 
-interface ContentBoxProps {
+interface StateProps {
   isactive: string;
 }
 
@@ -51,7 +51,7 @@ export const StyledSubTitle = styled(Typography)(({ theme }) => ({
   },
 }));
 
-export const StyledContent = styled(Typography)<ContentBoxProps>(({ theme, isactive }) => ({
+export const StyledContent = styled(Typography)<StateProps>(({ theme, isactive }) => ({
   color: isactive ? theme.palette.common.white : theme.palette.primary.main,
   fontWeight: 400,
 
@@ -62,7 +62,7 @@ export const StyledContent = styled(Typography)<ContentBoxProps>(({ theme, isact
   },
 }));
 
-export const StyledContentBox = styled(Box)<ContentBoxProps>(({ theme, isactive }) => ({
+export const StyledContentBox = styled(Box)<StateProps>(({ theme, isactive }) => ({
   borderRadius: '12px',
   background: isactive ? theme.palette.secondary.main : 'none',
   padding: '20px 30px',
