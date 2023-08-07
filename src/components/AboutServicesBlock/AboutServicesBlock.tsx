@@ -3,8 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import './styles.scss';
 
-import SwiperCore from 'swiper';
-import { Pagination, Autoplay } from 'swiper/modules';
+import SwiperCore, { Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
