@@ -1,7 +1,7 @@
 import { Box, experimentalStyled as styled, Typography } from '@mui/material';
 
 interface ContentBoxProps {
-  isActive: boolean;
+  isactive: string;
 }
 
 export const StyledSpatialBlock = styled(Box)(({ theme }) => ({
@@ -51,8 +51,8 @@ export const StyledSubTitle = styled(Typography)(({ theme }) => ({
   },
 }));
 
-export const StyledContent = styled(Typography)<ContentBoxProps>(({ theme, isActive }) => ({
-  color: isActive ? theme.palette.common.white : theme.palette.primary.main,
+export const StyledContent = styled(Typography)<ContentBoxProps>(({ theme, isactive }) => ({
+  color: isactive ? theme.palette.common.white : theme.palette.primary.main,
   fontWeight: 400,
 
   [theme.breakpoints.down('desktopX')]: {
@@ -62,9 +62,9 @@ export const StyledContent = styled(Typography)<ContentBoxProps>(({ theme, isAct
   },
 }));
 
-export const StyledContentBox = styled(Box)<ContentBoxProps>(({ theme, isActive }) => ({
+export const StyledContentBox = styled(Box)<ContentBoxProps>(({ theme, isactive }) => ({
   borderRadius: '12px',
-  background: isActive ? theme.palette.secondary.main : 'none',
+  background: isactive ? theme.palette.secondary.main : 'none',
   padding: '20px 30px',
 
   '&:hover': {
@@ -72,7 +72,7 @@ export const StyledContentBox = styled(Box)<ContentBoxProps>(({ theme, isActive 
   },
 
   '& h6': {
-    color: isActive && 'white',
+    color: isactive && 'white',
   },
 
   [theme.breakpoints.down('desktop')]: {

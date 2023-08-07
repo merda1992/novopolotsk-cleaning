@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import './styles.scss';
@@ -100,6 +100,14 @@ const AboutServicesBlock = () => {
     }
   };
 
+  useEffect(() => {
+    if (windowWidth > DeviceSizes.laptopS) {
+      setActiveNavItem(swiper?.realIndex);
+    } else {
+      setActiveNavItem(undefined);
+    }
+  }, [swiper?.realIndex, windowWidth]);
+
   const handleChangeSlide = (swiper: SwiperCore) => setActiveNavItem(swiper.realIndex);
 
   return (
@@ -110,9 +118,13 @@ const AboutServicesBlock = () => {
           <StyledContainerContentBlock>
             <StyledBoxWithText>
               {carouselSlidesContent.map(({ subTitle, content, id }) => (
-                <StyledContentBox key={id} onClick={() => handleSlideTo(id)} isActive={id === activeNavItem}>
+                <StyledContentBox
+                  key={id}
+                  onClick={() => handleSlideTo(id)}
+                  isactive={id === activeNavItem ? `${activeNavItem}` : ''}
+                >
                   <StyledSubTitle variant="subtitle1">{t(subTitle)}</StyledSubTitle>
-                  <StyledContent isActive={id === activeNavItem} variant="h3">
+                  <StyledContent isactive={id === activeNavItem ? `${activeNavItem}` : ''} variant="h3">
                     {t(content)}
                   </StyledContent>
                 </StyledContentBox>
@@ -166,7 +178,7 @@ const AboutServicesBlock = () => {
               <SwiperSlide key={id}>
                 <TextContainer>
                   <StyledSubTitle paddingBottom="14px">{t(subTitle)}</StyledSubTitle>
-                  <StyledContent isActive={id === activeNavItem} paddingBottom="42px">
+                  <StyledContent isactive={id === activeNavItem ? `${activeNavItem}` : ''} paddingBottom="42px">
                     {t(content)}
                   </StyledContent>
                 </TextContainer>
