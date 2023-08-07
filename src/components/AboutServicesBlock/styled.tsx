@@ -155,12 +155,20 @@ export const StyledPictureMobileWrapper = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
   maxWidth: '650px',
 
+  [theme.breakpoints.down('tabletM')]: {
+    maxWidth: '435px',
+  },
+
   img: {
     width: '100%',
     maxWidth: '560px',
     borderRadius: '12px',
     padding: '30px',
     minWidth: 0,
+
+    [theme.breakpoints.down('tabletM')]: {
+      maxWidth: '366px',
+    },
 
     [theme.breakpoints.down('mobile')]: {
       maxWidth: '283px',
