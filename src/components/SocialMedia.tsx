@@ -39,8 +39,8 @@ const TelNumber = styled(Typography)(({ theme }) => ({
 }));
 
 const IconsSoc: SocialMediaLinks[] = [
-  { Icon: InstagramIcon, url: 'https://www.instagram.com' },
-  { Icon: TelegramIcon, url: 'tg://resolve?domain=@_____' },
+  { Icon: InstagramIcon, url: 'https://www.instagram.com/s.nami.chisto?igshid=NGVhN2U2NjQ0Yg%3D%3D' },
+  { Icon: TelegramIcon, url: 'tg://resolve?domain=@snamichisto214' },
 ];
 
 const SocialMedia = ({ borderLine = 'vertical', borderPadding, ...props }: SocialMediaProps) => {
@@ -60,7 +60,7 @@ const SocialMedia = ({ borderLine = 'vertical', borderPadding, ...props }: Socia
         display="flex"
       >
         <>
-          <IconBox onClick={() => handleClickByLink('viber://chat?number=%2B____')}>
+          <IconBox onClick={() => handleClickByLink('viber://chat?number=%2B375298161177')}>
             <Iconography iconName="viber" />
           </IconBox>
           {IconsSoc.map(({ Icon, url }, idx) => (

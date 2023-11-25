@@ -107,7 +107,7 @@ const MainHeader = () => {
     <HeaderBox>
       <Box width="100%" justifyContent="space-between" display="flex" alignItems="center">
         <CompanyNameBox onClick={startWindow}>
-          <Typography>{t('companyName')}</Typography>
+          <Typography>{t('header')}</Typography>
         </CompanyNameBox>
         <TypographyBox onClick={handleSectionChange}>
           <Typography
