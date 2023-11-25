@@ -30,7 +30,7 @@ const baseTheme = {
     values: {
       mobileMedium: 375,
       mobile: 426,
-      tabletS: 600,
+      tabletS: 650,
       tabletM: 769,
       laptop: 1050,
       desktop: 1200,

@@ -6,6 +6,8 @@ import { styled } from '@mui/system';
 import { useTranslation } from 'react-i18next';
 import { useWindowWidth } from '../hooks/useWindowWidth';
 
+import Logo from './img/logo.png';
+
 import SocialMedia from './SocialMedia';
 import { DeviceSizes } from './AboutServicesBlock/types';
 
@@ -106,9 +108,13 @@ const MainHeader = () => {
   return (
     <HeaderBox>
       <Box width="100%" justifyContent="space-between" display="flex" alignItems="center">
-        <CompanyNameBox onClick={startWindow}>
-          <Typography>{t('header')}</Typography>
-        </CompanyNameBox>
+        <Box display="flex" gap="10px" alignItems="center">
+          <img width="55px" height="48px" src={Logo} alt="mainScrean" />
+          <CompanyNameBox onClick={startWindow}>
+            <Typography>{t('header')}</Typography>
+          </CompanyNameBox>
+        </Box>
+
         <TypographyBox onClick={handleSectionChange}>
           <Typography
             sx={{

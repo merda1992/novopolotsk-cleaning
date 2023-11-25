@@ -5,7 +5,7 @@ export enum DeviceSizes {
   laptopM = 1050,
   tabletM = 769,
   tablet = 748,
-  mobileVerticalOrientitaion = 600,
+  mobileVerticalOrientitaion = 650,
   mobileLarge = 425,
   mobileMedium = 375,
   mobileSmall = 320,

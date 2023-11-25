@@ -39,7 +39,7 @@ const carouselSlidesContent = [
     subTitle: 'services.one',
     content: 'prices.one',
     imgUrl: One,
-    imgAlt: 'Удаление пыли со всех горизонтальных поверхностей',
+    imgAlt: 'Уборка жилых помещений',
   },
   {
     id: 1,

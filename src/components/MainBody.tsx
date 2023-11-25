@@ -15,7 +15,7 @@ const BodyBox = styled(Box)(({ theme }) => ({
 }));
 
 const MainTypography = styled(Typography)(({ theme }) => ({
-  fontSize: '50px',
+  fontSize: '70px',
   textAlign: 'center',
   fontWeight: 400,
   color: theme.palette.common.white,
@@ -23,20 +23,8 @@ const MainTypography = styled(Typography)(({ theme }) => ({
   position: 'relative',
 
   [theme.breakpoints.down('tabletS')]: {
-    fontSize: '30px',
+    fontSize: '40px',
     lineHeight: '40px',
-  },
-
-  '&::after': {
-    display: 'block',
-    width: '300px',
-    height: '3px',
-    background: theme.palette.common.white,
-    position: 'absolute',
-    bottom: '-20px',
-    left: '50%',
-    transform: 'translateX(-50%)',
-    content: '""',
   },
 }));
 
