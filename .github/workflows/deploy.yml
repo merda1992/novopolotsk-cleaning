@@ -1,0 +1,30 @@
+name: "Release to Hoster"
+
+on:
+  push:
+    branches:
+      - cicd
+
+jobs:
+  build-and-deploy:
+    name: "Build/Deploy Process"
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Start Build Process
+        run: |
+          npm i
+          npm build
+          ls -la
+
+      - name: Deploy to Hoster
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          ssh -o StrictHostKeyChecking=no ${{ secrets.HOSTER_SERVER }} "ls -la ${{ secrets.HOSTER_HOME_PATH }}"
