@@ -1,0 +1,44 @@
+name: "Release to Hoster"
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    name: "Build/Deploy Process"
+    environment: Production
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
+      - name: Start Build Process
+        run: |
+          npm i
+          CI=false
+          echo $CI
+          npm run build
+          
+      - name: Deploy to Hoster
+        run: |         
+          eval $(ssh-agent -s)
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          ls -la build/
+          ssh -o StrictHostKeyChecking=no ${{ secrets.HOSTER_SSH_USERNAME }}@${{ secrets.HOSTER_SERVER }} "ls -la ${{ secrets.HOSTER_HOME_PATH }}"
+          ssh -o StrictHostKeyChecking=no ${{ secrets.HOSTER_SSH_USERNAME }}@${{ secrets.HOSTER_SERVER }} "rm -rf ${{ secrets.HOSTER_HOME_PATH }}/*"
+          scp -o StrictHostKeyChecking=no -r build/* ${{ secrets.HOSTER_SSH_USERNAME }}@${{ secrets.HOSTER_SERVER }}:${{ secrets.HOSTER_HOME_PATH }}/
+          
+      - name: Upload Artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifacts
+          path: build/
+          retention-days: 3
