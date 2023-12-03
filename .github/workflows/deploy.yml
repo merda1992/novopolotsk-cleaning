@@ -3,7 +3,7 @@ name: "Release to Hoster"
 on:
   push:
     branches:
-      - cicd
+      - master
 
 jobs:
   build-and-deploy:
@@ -41,4 +41,4 @@ jobs:
         with:
           name: artifacts
           path: build/
-          retention-days: 5
+          retention-days: 3
