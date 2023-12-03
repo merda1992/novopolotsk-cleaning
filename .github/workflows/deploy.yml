@@ -19,7 +19,7 @@ jobs:
       - name: Start Build Process
         run: |
           npm i
-          npm build
+          npm run build
           ls -la
 
       - name: Deploy to Hoster
