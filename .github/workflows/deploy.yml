@@ -17,6 +17,13 @@ jobs:
         with:
           fetch-depth: 0
           
+      - name: Start Build Process
+        run: |
+          npm i
+          CI=false
+          echo $CI
+          npm run build
+          
       - name: Deploy to Hoster
         run: |         
           eval $(ssh-agent -s)
@@ -24,4 +31,14 @@ jobs:
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
           ssh -o StrictHostKeyChecking=no ${{ secrets.HOSTER_SSH_USERNAME }}@${{ secrets.HOSTER_SERVER }} "ls -la ${{ secrets.HOSTER_HOME_PATH }}"
-
+          ssh -o StrictHostKeyChecking=no ${{ secrets.HOSTER_SSH_USERNAME }}@${{ secrets.HOSTER_SERVER }} "rm -rf ${{ secrets.HOSTER_HOME_PATH }}/*"
+          scp -o StrictHostKeyChecking=no -r build/* ${{ secrets.HOSTER_SSH_USERNAME }}@${{ secrets.HOSTER_SERVER }}/${{ secrets.HOSTER_HOME_PATH }}/
+          ssh -o StrictHostKeyChecking=no ${{ secrets.HOSTER_SSH_USERNAME }}@${{ secrets.HOSTER_SERVER }} "ls -la ${{ secrets.HOSTER_HOME_PATH }}"
+          
+      - name: Upload Artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifacts
+          path: build/
+          retention-days: 5
