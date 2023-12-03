@@ -19,6 +19,8 @@ jobs:
       - name: Start Build Process
         run: |
           npm i
+          CI=false
+          echo $CI
           npm run build
           ls -la
 
