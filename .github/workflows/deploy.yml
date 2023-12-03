@@ -8,6 +8,7 @@ on:
 jobs:
   build-and-deploy:
     name: "Build/Deploy Process"
+    environment: Production
     runs-on: ubuntu-latest
     
     steps:
@@ -19,9 +20,9 @@ jobs:
       - name: Deploy to Hoster
         run: |
           eval $(ssh-agent -s)
-          cat ${{ env.SSH_PRIVATE_KEY }}
+          cat ${{ secrets.SSH_PRIVATE_KEY }}
           cat ${{ secrets.HOSTER_SERVER }}
-          echo ${{ env.SSH_PRIVATE_KEY }} | tr -d '\r' | ssh-add -
+          echo ${{ secrets.SSH_PRIVATE_KEY }} | tr -d '\r' | ssh-add -
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
           ssh -o StrictHostKeyChecking=no ${{ secrets.HOSTER_SERVER }} "ls -la ${{ secrets.HOSTER_HOME_PATH }}"
