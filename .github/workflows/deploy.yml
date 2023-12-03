@@ -25,4 +25,4 @@ jobs:
           username: ${{ secrets.HOSTER_SSH_USERNAME }}
           passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
           source: "README.md"
-          target: ${{ env.HOSTER_REMOTE_FOLDER }}
+          target: "/home/snamichist/build/"
