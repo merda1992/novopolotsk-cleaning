@@ -16,16 +16,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Start Build Process
-        run: |
-          npm i
-          CI=false
-          echo $CI
-          npm run build
-          ls -la
-
       - name: Deploy to Hoster
         run: |
+          eval $(ssh-agent -s)
           echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
