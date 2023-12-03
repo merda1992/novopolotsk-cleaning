@@ -30,10 +30,10 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
+          ls -la build/
           ssh -o StrictHostKeyChecking=no ${{ secrets.HOSTER_SSH_USERNAME }}@${{ secrets.HOSTER_SERVER }} "ls -la ${{ secrets.HOSTER_HOME_PATH }}"
           ssh -o StrictHostKeyChecking=no ${{ secrets.HOSTER_SSH_USERNAME }}@${{ secrets.HOSTER_SERVER }} "rm -rf ${{ secrets.HOSTER_HOME_PATH }}/*"
-          scp -o StrictHostKeyChecking=no -r build/* ${{ secrets.HOSTER_SSH_USERNAME }}@${{ secrets.HOSTER_SERVER }}/${{ secrets.HOSTER_HOME_PATH }}/
-          ssh -o StrictHostKeyChecking=no ${{ secrets.HOSTER_SSH_USERNAME }}@${{ secrets.HOSTER_SERVER }} "ls -la ${{ secrets.HOSTER_HOME_PATH }}"
+          scp -o StrictHostKeyChecking=no -r build/* ${{ secrets.HOSTER_SSH_USERNAME }}@${{ secrets.HOSTER_SERVER }}:${{ secrets.HOSTER_HOME_PATH }}/
           
       - name: Upload Artifacts
         if: always()
