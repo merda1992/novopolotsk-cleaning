@@ -108,7 +108,7 @@ const MainHeader = () => {
   return (
     <HeaderBox>
       <Box width="100%" justifyContent="space-between" display="flex" alignItems="center">
-        <Box display="flex" gap="10px" alignItems="center">
+        <Box display="flex" gap="10px" alignItems="center" sx={{ userSelect: 'none' }}>
           <img width="55px" height="48px" src={Logo} alt="mainScrean" />
           <CompanyNameBox onClick={startWindow}>
             <Typography>{t('header')}</Typography>
