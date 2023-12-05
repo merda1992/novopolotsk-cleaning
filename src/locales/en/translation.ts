@@ -3,7 +3,7 @@ const translation = {
     mail: '(markevich161992@mail.ru)',
     contactUs: 'Связаться с нами',
   },
-  companyName: "С нами чисто",
+  companyName: "Клининговые услуги в Новополоцке и Полоцке",
   header: "Клининговые услуги в Новополоцке-Полоцке",
   servicesAndPrices: "Услуги и цены",
   number: "+375(29)-816-11-77",

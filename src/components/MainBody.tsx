@@ -15,7 +15,7 @@ const BodyBox = styled(Box)(({ theme }) => ({
 }));
 
 const MainTypography = styled(Typography)(({ theme }) => ({
-  fontSize: '70px',
+  fontSize: '55px',
   textAlign: 'center',
   fontWeight: 400,
   color: theme.palette.common.white,
